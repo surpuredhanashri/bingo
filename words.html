@@ -1,0 +1,261 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: "Montserrat";
+        box-sizing: border-box;
+        background: #2a2724;
+        color: #cf6a32;
+        user-select: none;
+        background-color: #82acf4;
+        background-image: url("https://png.pngtree.com/background/20210715/original/pngtree-indian-republic-day-minimalist-yellow-background-picture-image_1280643.jpg");
+        /* background-image: url("https://i.ytimg.com/vi/Tji57t2Csgg/maxresdefault.jpg"); */
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: 100%;
+      }
+
+      .flex-d {
+        display: flex;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      main {
+        width: 33rem;
+        margin: 10px auto;
+        border: 3px solid #376dc8;
+        border-radius: 15px;
+        background: transparent;
+      }
+
+      img {
+        margin-top: 50px;
+      }
+
+      h1 {
+        padding-top: 1rem;
+        color: #376dc8;
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      h1 span {
+        display: inline-block;
+        width: 5.7rem;
+        height: 5.7rem;
+        font-size: 2.7em;
+      }
+
+      .grid {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        width: 34rem;
+        height: 34rem;
+        margin: 0 auto;
+      }
+
+      label {
+        display: block;
+        width: 5.7rem;
+        height: 5.7rem;
+        border-radius: 15px;
+      }
+
+      label input {
+        display: none;
+      }
+
+      label input:checked + .mark {
+        cursor: pointer;
+        background: #376dc8;
+        color: #ffffff;
+      }
+
+      label .mark {
+        padding: 5px;
+        cursor: pointer;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 6.34rem;
+        height: 6.34rem;
+        padding: 0.2rem;
+        border-radius: 4px;
+        background: #ffffff;
+        color: #376dc8;
+        border: 2px solid #376dc8;
+        font-size: 0.7em;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      small {
+        display: block;
+        padding: 1em;
+        text-align: center;
+      }
+
+      #wordbox {
+        /*opacity: 0;*/
+        margin: 30px auto 0;
+        display: block;
+        width: 300px;
+        height: 40px;
+        font-size: 30px;
+        text-align: center;
+        background: #fff;
+        border-radius: 6px;
+        color: black;
+        transition: 1s linear;
+      }
+
+      #button {
+        background: #0b7fba;
+        border: 0;
+        color: #fff;
+        font-size: 20px;
+        padding: 1em 2em;
+        cursor: pointer;
+        margin: 0 auto 60px;
+        display: block;
+        text-align: center;
+        border-radius: 6px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="flex-d">
+      <div style="width: 100%; display: flex; align-items: center">
+        <img
+          src="Vector.svg"
+          height="100px"
+          style="margin-left: auto; margin-right: auto; margin-top: 0px"
+        />
+      </div>
+    </div>
+    <div class="flex-d">
+      <div style="width: 25%">
+        <!-- <img src="./Untitled-1.png" height="80%" width="100%" /> -->
+      </div>
+      <div style="flex-grow: 1">
+        <h1>What's the next word?</h1>
+
+        <form name="WordForm">
+          <input type="TEXT" name="WordBox" id="wordbox" /><br />
+          <input
+            type="BUTTON"
+            value="Generate"
+            onClick="PickRandomWord(document.WordForm);"
+            id="button"
+          />
+        </form>
+      </div>
+      <div style="width: 25%">
+        <!-- <img src="Right-side image.svg" width="100%" height="80%" /> -->
+        <img src="./Untitled-1.png" height="80%" width="100%" />
+      </div>
+    </div>
+  </body>
+  <script>
+    var NumberOfWords = 28;
+
+    var words = [
+      " Diverse culture",
+      " Rich history",
+      " Stunning architecture",
+      "Vibrant traditions",
+      " Delicious cuisine",
+      " Beautiful landscapes",
+      "  Hospitable people",
+      " Strong family values",
+      "Respect for elders",
+      " Spiritual heritage",
+      "Strong sense of community",
+      " Innovative",
+      "Resilient",
+      "Hardworking",
+      "Entrepreneurial",
+      "Creative",
+      "Progressive",
+      "Adaptable",
+      "Tolerance",
+      "Inclusivity",
+      "Cultural heritage",
+      "Natural beauty",
+      "Linguistic diversity",
+      "Progressive society",
+      "Advanced technology",
+      " Strong education system",
+      "  Scientific advancements",
+      "Rich literary tradition",
+      " Musical heritage",
+      "Artistic expression",
+      " Strong democracy",
+      "Secular society",
+      "Gender equality",
+      "Human rights",
+      "  Economic growth",
+      "  Emerging superpower",
+      "Strategic location",
+      "  Nuclear capability",
+      "Strong military",
+      " Economic opportunities",
+      "Skilled workforce",
+      "Entrepreneurial spirit",
+      "Growing tourism industry",
+      "Global influence",
+      "Positive image",
+      "Strong diplomatic relations",
+      "Political stability",
+      " Cultural diversity",
+      " Variety of religions",
+      "Unity in diversity",
+      " Strong tradition of nonviolence",
+      " Peaceful coexistence",
+      "Religious harmony",
+      "Cultural exchange",
+      "Scientific research",
+      " Environmental conservation",
+      " Humanitarian aid",
+      " Philanthropy",
+      " Foreign investment",
+      " Infrastructure development",
+      "Space exploration",
+      "  Modern transportation",
+      "Advanced healthcare system",
+      " Rich biodiversity",
+      " Agricultural productivity",
+      " Sustainable development",
+      "Strong civil society",
+      " Legal system",
+      "  Intellectual property rights",
+      " Intellectual capital",
+      "Human development",
+      "Gender empowerment",
+      "Social welfare programs",
+      "Scientific research",
+    ];
+
+    temp = [];
+
+    function PickRandomWord(frm) {
+      // Generate a random number between 1 and NumberOfWords
+      var rnd = Math.ceil(Math.random() * words.length);
+      // Display the word inside the text box
+      frm.WordBox.value = words[rnd];
+      temp.push(words[rnd]);
+      words.splice(rnd, 1);
+      console.log(words.length);
+    }
+  </script>
+</html>
